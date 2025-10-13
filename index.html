@@ -1,8 +1,135 @@
-<html>
-    <head>
-        <title>沈峻霆的履歷</title>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人網站 - ABC</title>
+    
+    <style>
+        /* 基本重設 */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* 淺灰色背景 */
+            color: #333; /* 主要文字顏色 */
+            line-height: 1.6;
+        }
+
+        /* 容器，限制內容最大寬度並置中 */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff; /* 白色內容區背景 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 輕微陰影 */
+            border-radius: 8px; /* 圓角 */
+        }
+
+        /* 標頭樣式 */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #007bff; /* 藍色標題 */
+        }
+
+        /* 個人資料卡片樣式 */
+        .profile-card {
+            display: flex; /* 啟用 Flexbox 進行排版 */
+            align-items: center; /* 垂直置中 */
+            gap: 30px; /* 圖片和文字之間的間距 */
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        /* 大頭照樣式 */
+        .profile-photo {
+            width: 150px; /* 寬度 */
+            height: 150px; /* 高度 */
+            border-radius: 50%; /* 圓形圖片 */
+            object-fit: cover; /* 確保圖片不變形 */
+            border: 4px solid #007bff; /* 藍色邊框 */
+        }
+
+        /* 個人資訊文字樣式 */
+        .info h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info p {
+            margin: 5px 0;
+        }
+
+        /* 練習區塊樣式 */
+        .practice-area {
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .practice-area h3 {
+            border-left: 5px solid #28a745; /* 綠色左邊框 */
+            padding-left: 10px;
+            color: #28a745;
+        }
+
+        /* 底部樣式 */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* RWD (響應式設計) 優化：當螢幕較小時，大頭照和資訊垂直堆疊 */
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column; /* 垂直堆疊 */
+                text-align: center;
+            }
+        }
+    </style>
     </head>
-    <body>
-        <h1>我的第一個測試網站</h1>
-    </body>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>個人簡介</h1>
+        </header>
+
+        <section class="profile-card">
+            <img src="placeholder.jpg" alt="ABC 的大頭照" class="profile-photo">
+            
+            <div class="info">
+                <h2>姓名：ABC</h2>
+                <p><strong>性別：</strong> 男</p>
+                <p><strong>年齡：</strong> 18 歲</p>
+                <p><strong>電話：</strong> 0123456789</p>
+            </div>
+        </section>
+
+        <section class="practice-area">
+            <h3>網站練習區</h3>
+            <p>您可以在這裡新增更多個人作品、技能介紹或任何其他內容來練習 HTML 和 CSS！</p>
+            <ul>
+                <li>練習項目一</li>
+                <li>練習項目二</li>
+                <li>練習項目三</li>
+            </ul>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 ABC 個人網站練習</p>
+        </footer>
+    </div>
+
+</body>
 </html>
