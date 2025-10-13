@@ -128,18 +128,16 @@
         }
 
         .bar-label {
-            width: 50px;
+            width: 80px;
             /* 項目名稱佔用寬度 */
             font-weight: bold;
-            text-align: right;
-            margin-right: 15px;
-            color: #007bff;
+            color: blue;
         }
 
         .bar-container {
             flex-grow: 1;
             /* 佔據剩餘所有空間 */
-            background-color: #eee;
+            background-color: lightgray;
             height: 30px;
             /* 長條的高度 */
             border-radius: 5px;
@@ -150,7 +148,7 @@
 
         .bar-fill {
             height: 100%;
-            background-color: #28a745;
+            background-color: blue;
             /* 綠色填充 */
             /* 這裡的 width 會被 HTML 中的行內樣式覆蓋，以達到不同長度 */
             width: 0;
@@ -159,38 +157,45 @@
 
             /* 增加一個簡單的載入動畫 (可選) */
             transition: width 1.5s ease-out;
+            position: relative;
         }
 
         .bar-score {
             position: absolute;
             right: 5px;
-            line-height: 30px;
-            /* 垂直置中分數 */
+
+            /* 垂直置中設定 */
+            top: 50%;
+            transform: translateY(-50%);
+
+            /* 樣式美化 */
+            line-height: 1;
+            /* 確保頂部和底部間距一致，配合 top/transform 置中 */
             color: #fff;
-            /* 分數文字顏色 */
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-            z-index: 10;
+            white-space: nowrap;
+            /* 確保文字不會換行 */
         }
 
-        /* 底部樣式 */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
-            color: #777;
-            font-size: 0.9em;
-        }
-
-        /* RWD (響應式設計) 優化：當螢幕較小時，大頭照和資訊垂直堆疊 */
-        @media (max-width: 600px) {
-            .profile-card {
-                flex-direction: column;
-                /* 垂直堆疊 */
+            /* 底部樣式 */
+            footer {
                 text-align: center;
+                margin-top: 40px;
+                padding-top: 15px;
+                border-top: 1px solid #ddd;
+                color: #777;
+                font-size: 0.9em;
             }
-        }
+
+            /* RWD (響應式設計) 優化：當螢幕較小時，大頭照和資訊垂直堆疊 */
+            @media (max-width: 600px) {
+                .profile-card {
+                    flex-direction: column;
+                    /* 垂直堆疊 */
+                    text-align: center;
+                }
+            }
     </style>
 </head>
 
@@ -198,16 +203,14 @@
 
     <div class="container">
         <header>
-            <h1>個人簡介</h1>
+            <h1>履歷表</h1>
         </header>
 
         <section class="profile-card">
             <img src="placeholder.jpg" alt="大頭照" class="profile-photo">
 
             <div class="info">
-                <h2>姓名：沈峻霆</h2>
-                <p><strong>性別：</strong>男</p>
-                <p><strong>年齡：</strong>30 歲</p>
+                <h2>沈峻霆</h2>
                 <p><strong>聯絡電話：</strong>0988-505-288</p>
                 <p><strong>電子信箱：</strong>jjoce8513@gmail.com</p>
             </div>
@@ -251,54 +254,91 @@
                     <li>任職期間： 2021/09 ~ 2023/05</li>
                 </ul>
             </ul>
+            <h3>技能專長</h3>
+            <ul>
+                <li>擅長工具</li>
+                <div class="chart-wrapper">
+
+                    <div class="bar-item">
+                        <div class="bar-label">Python</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 80%;">
+                                <span class="bar-score">80%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-label">SQL</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 90%;">
+                                <span class="bar-score">90%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-label">Power BI</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 85%;">
+                                <span class="bar-score">85%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-label">Git</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 85%;">
+                                <span class="bar-score">85%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-label">Excel</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 90%;">
+                                <span class="bar-score">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li>語言能力</li>
+                <div class="chart-wrapper">
+
+                    <div class="bar-item">
+                        <div class="bar-label">英文</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 70%;">
+                                <span class="bar-score">70%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-label">台語</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 85%;">
+                                <span class="bar-score">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <li>證照</li>
+                <p style="padding-left: 70px;">普通重型機車、普通小型車</p>
+            </ul>
+
+            <h3>自傳</h3>
+            <p>我是沈峻霆，臺中人，畢業於交通大學應用數學研究所。高中時期數理能力不錯，大學錄取上資訊工程學系，接觸過C++和Java。近期上完數據分析相關課程，對Python、SQL、database、Power BI、Git也有一定程度的了解。</p>
+            <p>在研究所時，畢業論文是應用馬可夫鏈來估計隨機漫步在特殊情況下的逃脫機率。研究領域是機率理論與馬可夫鏈，研究中遇到的問題，指導教授會以反問的方式，讓我不斷地想辦法解決。假如真的想不出辦法，我則會將我的方法與所遇到的困難解釋給教授聽，跟教授討論下一步該如何走。</p>
+            <p>畢業後，前後任職2份工作。第一個是任職於遊戲公司，負責後端程式的撰寫；第二個是於財團法人中華經濟研究院任職輔佐研究員，負責政府標案資料蒐集和行政事務。這兩份工作讓我得到很多跟人分工與溝通的經驗，十分重要。</p>
+            <p>聘期結束後回台中，有幸得到數據分析課程學習的機會，課程最後的專題做了飛往日本機票的Power BI數據分析，是和組員分工和討論的成果。</p>
+            <p>最後，雖然我目前出社會將近3年，但我認為藉由在數學系裡嚴謹的邏輯思考訓練可以幫助我快速的在資料科學領域學習與進修，期望自己能學以致用為公司帶來正面影響。</p>
+
         </section>
 
-        <section class="bar-chart-section">
-            <h2>能力值長條圖 (滿分 10)</h2>
-
-            <div class="chart-wrapper">
-
-                <div class="bar-item">
-                    <div class="bar-label">A</div>
-                    <div class="bar-container">
-                        <div class="bar-fill" style="width: 50%;"></div>
-                        <span class="bar-score">5</span>
-                    </div>
-                </div>
-
-                <div class="bar-item">
-                    <div class="bar-label">B</div>
-                    <div class="bar-container">
-                        <div class="bar-fill" style="width: 90%;"></div>
-                        <span class="bar-score">9</span>
-                    </div>
-                </div>
-
-                <div class="bar-item">
-                    <div class="bar-label">C</div>
-                    <div class="bar-container">
-                        <div class="bar-fill" style="width: 60%;"></div>
-                        <span class="bar-score">6</span>
-                    </div>
-                </div>
-
-                <div class="bar-item">
-                    <div class="bar-label">D</div>
-                    <div class="bar-container">
-                        <div class="bar-fill" style="width: 30%;"></div>
-                        <span class="bar-score">3</span>
-                    </div>
-                </div>
-
-                <div class="bar-item">
-                    <div class="bar-label">E</div>
-                    <div class="bar-container">
-                        <div class="bar-fill" style="width: 80%;"></div>
-                        <span class="bar-score">8</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <footer>
             <p>&copy; 2025 沈峻霆的個人網站</p>
