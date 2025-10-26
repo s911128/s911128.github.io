@@ -241,26 +241,46 @@
 
 
         /* --- 自傳與附件 --- */
-        .article p{
+        .article p {
             text-align: justify;
             text-indent: 2em;
             margin: 0;
         }
 
+        /* 附件區塊樣式 */
+        .attachment-section li{
+            margin: 5px;
+        }
+
         .attachment-section button {
-            padding: 5px 10px;
-            background-color: #6c757d;
-            color: #fff;
+            padding: 3px 10px;
+            background-color: lightgray;
             border: none;
-            border-radius: 4px;
+            border-radius: 3px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 1em;
+            font-weight: bold;
             margin-left: 10px;
             transition: background-color 0.3s;
         }
 
+        .attachment-section button:hover {
+            background-color: gray;
+        }
+
         .hidden {
             display: none;
+        }
+
+        #certContainer, #thesisContainer {
+            margin-left: -40px;
+        }
+
+        .attachment-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -421,46 +441,61 @@
 
         <div class="section-title">自傳</div>
         <section class="article">
-            <p>我是沈峻霆，臺中人，畢業於交通大學應用數學研究所。高中時期數理能力不錯，大學錄取上資訊工程學系，接觸過C++和Java。近期上完數據分析相關課程，對Python、SQL、database、Power BI、Git也有一定程度的了解。</p>
-            <p>在研究所時，畢業論文是應用馬可夫鏈來估計隨機漫步在特殊情況下的逃脫機率。研究領域是機率理論與馬可夫鏈，研究中遇到的問題，指導教授會以反問的方式，讓我不斷地想辦法解決。假如真的想不出辦法，我則會將我的方法與所遇到的困難解釋給教授聽，跟教授討論下一步該如何走。</p>
-            <p>畢業後，前後任職2份工作。第一個是任職於遊戲公司，負責後端程式的撰寫；第二個是於財團法人中華經濟研究院任職輔佐研究員，負責政府標案資料蒐集和行政事務。這兩份工作讓我得到很多跟人分工與溝通的經驗，十分重要。</p>
+            <p>我是沈峻霆，臺中人，畢業於交通大學應用數學研究所。高中時期數理能力不錯，大學錄取上資訊工程學系，接觸過C++和Java。近期上完數據分析相關課程，對Python、SQL、database、Power
+                BI、Git也有一定程度的了解。</p>
+            <p>在研究所時，畢業論文是應用馬可夫鏈來估計隨機漫步在特殊情況下的逃脫機率。研究領域是機率理論與馬可夫鏈，研究中遇到的問題，指導教授會以反問的方式，讓我不斷地想辦法解決。假如真的想不出辦法，我則會將我的方法與所遇到的困難解釋給教授聽，跟教授討論下一步該如何走。
+            </p>
+            <p>畢業後，前後任職2份工作。第一個是任職於遊戲公司，負責後端程式的撰寫；第二個是於財團法人中華經濟研究院任職輔佐研究員，負責政府標案資料蒐集和行政事務。這兩份工作讓我得到很多跟人分工與溝通的經驗，十分重要。
+            </p>
             <p>聘期結束後回台中，有幸得到數據分析課程學習的機會，課程最後的專題做了飛往日本機票的Power BI數據分析，是和組員分工和討論的成果。</p>
             <p>最後，雖然我目前出社會將近3年，但我認為藉由在數學系裡嚴謹的邏輯思考訓練可以幫助我快速的在資料科學領域學習與進修，期望自己能學以致用為公司帶來正面影響。</p>
         </section>
 
         <div class="section-title">附件</div>
-        <section class="section-content attachment-section">
-            <p style="display: inline-block;">畢業證書.jpeg</p>
-            <button id="toggleAttachment" data-expanded="false">展開</button>
+        <section class="attachment-section">
+            <ul>
+                <li>碩士畢業證書<button data-target="certContainer" data-expanded="false">展開</button></li>
+                <div id="certContainer" class="attachment-content hidden">
+                    <img src="碩士畢業證書.jpeg" alt="畢業證書" class="attachment-image">
+                </div>
+                <li>碩士論文中文摘要<button data-target="thesisContainer" data-expanded="false">展開</button></li>
+                <div id="thesisContainer" class="attachment-content hidden">
+                    <img src="碩士論文.jpeg" alt="碩士論文封面" class="attachment-image">
+                </div>
+                <li>數據分析課程專題成果</li>
+            </ul>
 
-            <div id="attachmentContainer" class="hidden">
-                <img src="碩士畢業證書.jpeg" alt="碩士畢業證書" class="attachment-image">
-            </div>
         </section>
 
     </div>
 
     <script>
-        // 處理附件的展開/收合功能
         document.addEventListener('DOMContentLoaded', function () {
-            const toggleButton = document.getElementById('toggleAttachment');
-            const attachmentContainer = document.getElementById('attachmentContainer');
+            // 透過屬性選取器找到所有帶有 data-target 屬性的按鈕
+            const toggleButtons = document.querySelectorAll('button[data-target]');
 
-            if (toggleButton && attachmentContainer) {
-                toggleButton.addEventListener('click', function () {
+            // 為每個按鈕添加監聽事件
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const targetId = this.getAttribute('data-target'); // 取得目標容器的 ID
+                    const targetContainer = document.getElementById(targetId);
                     const isExpanded = this.getAttribute('data-expanded') === 'true';
 
-                    if (isExpanded) {
-                        attachmentContainer.classList.add('hidden');
-                        this.textContent = '展開';
-                        this.setAttribute('data-expanded', 'false');
-                    } else {
-                        attachmentContainer.classList.remove('hidden');
-                        this.textContent = '收合';
-                        this.setAttribute('data-expanded', 'true');
+                    if (targetContainer) {
+                        if (isExpanded) {
+                            // 收合
+                            targetContainer.classList.add('hidden');
+                            this.textContent = '展開';
+                            this.setAttribute('data-expanded', 'false');
+                        } else {
+                            // 展開
+                            targetContainer.classList.remove('hidden');
+                            this.textContent = '收合';
+                            this.setAttribute('data-expanded', 'true');
+                        }
                     }
                 });
-            }
+            });
         });
     </script>
 </body>
