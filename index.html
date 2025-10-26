@@ -87,33 +87,29 @@
         /* 3. 學歷、經歷的內容排版 */
 
         .important {
-            font-size: 1.1em;
+            font-size: 1.08em;
             font-weight: bold;
         }
 
         .item-period {
             font-size: 1em;
             font-style: italic;
-            color: #666;
+            color: gray;
             float: right;
         }
 
-        .education-item {
-            margin: 3px 0 10px 20px;
+        .contect-item {
+            margin: 0 0 10px 20px;
         }
 
-        .education-item p{
+        .contect-item p{
             margin: 0;
         }
 
-        .experience-item ul {
-            list-style-type: disc;
-            margin: 5px 0 10px 20px;
-            padding: 0;
-        }
-
-        .experience-item li {
-            margin-bottom: 3px;
+        #seniority {
+            font-size: 0.85em;
+            color: #004085;
+            float: right;
         }
 
         /* --- 4. 技能專長長條圖 (單行呈現) --- */
@@ -248,33 +244,34 @@
         <section class="section-content">
             <ul>
                 <li class="important">國立交通大學 應用數學系 碩士<span class="item-period">2018/09 ~ 2020/11</span></li>
-                <div class="education-item">
+                <div class="contect-item">
                     <p>研究領域： 隨機過程、馬可夫鏈</p>
                     <p>論文題目： 在無限二元樹中隨機漫步的逃脫機率</p>
                     <p>修習科目： 實變函數論、高等機率論、常微分方程、矩陣分析</p>
                 </div>
                 <li class="important">國立中央大學 資訊工程學系 學士<span class="item-period">2013/09 ~ 2017/06</span></li>
-                <div class="education-item">
+                <div class="contect-item">
                     <p>修習科目： 資料結構、演算法、作業系統等</p>
                     <p>參與事務： 資工營、系排、登山社</p>
                 </div>
-                <li>國立臺中第二高級中學 數理資優班</li>
+                <li class="important">國立臺中第二高級中學 數理資優班</li>
             </ul>
         </section>
 
-        <div class="section-title">工作經歷</div>
+        <div class="section-title">工作經歷<span id="seniority">總年資： 3年</span></div>
         <section class="section-content">
-            <p>總年資: 1年</p>
-            <div class="experience-item">
-                <p style="font-weight: bold; margin-bottom: 5px;">
-                    ABC公司
-                    <span class="item-period">2025/01 ~ 2025/06</span>
-                </p>
-                <ul>
-                    <li>職稱: 研究員</li>
-                    <li>工作內容: 研究世界的物質</li>
-                </ul>
-            </div>
+            <ul>
+                <li class="important">財團法人中華經濟研究院<span class="item-period">2023/06 ~ 2024/12</span></li>
+                <div class="contect-item">
+                    <p>職稱： 輔佐研究員</p>
+                    <p>工作內容： 資料蒐集</p>
+                </div>
+                <li class="important">京赫科技有限公司<span class="item-period">2021/09 ~ 2023/05</span></li>
+                <div class="contect-item">
+                    <p>職稱： 後端工程師</p>
+                    <p>工作內容： 資料蒐集</p>
+                </div>
+            </ul>
         </section>
 
         <div class="section-title">技能與語言能力</div>
