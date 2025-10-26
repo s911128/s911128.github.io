@@ -1,8 +1,292 @@
-<html>
-    <head>
-        <title>沈峻霆的履歷</title>
-    </head>
-    <body>
-        <h1>我的第一個測試網站</h1>
-    </body>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC 的個人網站 - 練習作品</title>
+    
+    <style>
+        /* 基本重置 */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 960px; /* 限制最大寬度以保持排版美觀 */
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            color: #007BFF;
+        }
+
+        /* 標頭樣式 */
+        .profile-header {
+            background: #fff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* 圓形大頭照 */
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* 內容區塊樣式 */
+        .info-section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+        }
+
+        /* 技能長條圖樣式 */
+        .skill-level-note {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-name {
+            width: 50px; /* 技能名稱固定寬度 */
+            font-weight: bold;
+            text-align: right;
+            flex-shrink: 0; /* 防止被壓縮 */
+        }
+
+        .skill-bar-container {
+            flex-grow: 1;
+            background-color: #eee;
+            border-radius: 5px;
+            height: 15px;
+            overflow: hidden;
+            max-width: 400px; /* 限制長條圖最大寬度 */
+        }
+
+        .skill-bar {
+            height: 100%;
+            background-color: #28a745; /* 綠色，可自訂 */
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* 根據 data-level 設定長條圖寬度 (百分比) */
+        .skill-bar[data-level="1"] { width: 0%; } /* 未接觸 */
+        .skill-bar[data-level="2"] { width: 33%; } /* 略懂 */
+        .skill-bar[data-level="3"] { width: 66%; } /* 普通 */
+        .skill-bar[data-level="4"] { width: 100%; } /* 熟練 */
+
+        .skill-text {
+            width: 40px; /* 等級文字固定寬度 */
+            font-size: 0.9em;
+            color: #007BFF;
+            flex-shrink: 0;
+        }
+
+        /* 附件區塊樣式 */
+        .attachment-section button {
+            padding: 8px 15px;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .attachment-section button:hover {
+            background-color: #e0a800;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .attachment-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* 頁腳 */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="profile-header">
+        <img src="images/profile.jpg" alt="ABC的大頭照" class="profile-photo">
+        <h1>姓名: ABC</h1>
+    </header>
+
+    <main class="container">
+        <section class="info-section">
+            <h2>1. 基本資料</h2>
+            <ul>
+                <li>**性別:** 男</li>
+                <li>**年齡:** 18</li>
+                <li>**電話:** 0123456789</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>2. 學歷</h2>
+            <div class="education-item">
+                <p>**世界大學 物理系 碩士**</p>
+                <p>在學期間: 2024/01 ~ 2024/12</p>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>3. 工作經歷</h2>
+            <p>**總年資:** 1年</p>
+            <div class="experience-item">
+                <h3>ABC公司</h3>
+                <p>**職稱:** 研究員</p>
+                <p>**工作內容:** 研究世界的物質</p>
+                <p>**任職期間:** 2025/01 ~ 2025/06</p>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>4. 技能專長</h2>
+            <p class="skill-level-note">等級：未接觸、略懂、普通、熟練</p>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <span class="skill-name">金</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="3"></div>
+                    </div>
+                    <span class="skill-text">普通</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">木</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="3"></div>
+                    </div>
+                    <span class="skill-text">普通</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">水</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="4"></div>
+                    </div>
+                    <span class="skill-text">熟練</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">火</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="3"></div>
+                    </div>
+                    <span class="skill-text">普通</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">土</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="4"></div>
+                    </div>
+                    <span class="skill-text">熟練</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>5. 自傳</h2>
+            <p class="autobiography">
+                我是ABC，畢業於世界大學物理系碩士，在學期間專注於研究世界的物質特性。我具備一年的研究員工作經歷，熟悉相關的實驗與分析方法。我對於探索未知充滿熱情，並渴望將所學應用於實際問題的解決。...(以下略)
+            </p>
+        </section>
+
+        <section class="info-section attachment-section">
+            <h2>6. 附件</h2>
+            <p>畢業證書.jpeg</p>
+            <button id="toggleAttachment" data-expanded="false">展開</button>
+
+            <div id="attachmentContainer" class="hidden">
+                <img src="images/certificate.jpeg" alt="畢業證書" class="attachment-image">
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ABC. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 處理附件的展開/收合功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleAttachment');
+            const attachmentContainer = document.getElementById('attachmentContainer');
+
+            // 檢查元素是否存在
+            if (toggleButton && attachmentContainer) {
+                toggleButton.addEventListener('click', function() {
+                    // 檢查當前狀態
+                    const isExpanded = this.getAttribute('data-expanded') === 'true';
+
+                    if (isExpanded) {
+                        // 如果是展開狀態，則收合
+                        attachmentContainer.classList.add('hidden');
+                        this.textContent = '展開';
+                        this.setAttribute('data-expanded', 'false');
+                    } else {
+                        // 如果是收合狀態，則展開
+                        attachmentContainer.classList.remove('hidden');
+                        this.textContent = '收合';
+                        this.setAttribute('data-expanded', 'true');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
 </html>
