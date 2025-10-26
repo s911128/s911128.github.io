@@ -99,7 +99,7 @@
         }
 
         .contect-item {
-            margin: 20px 0 35px 20px;
+            margin: 10px 0 35px 20px;
         }
 
         .contect-item p {
@@ -248,11 +248,11 @@
         }
 
         /* 附件區塊樣式 */
-        .attachment-section li {
+        #attachment-section li {
             margin: 5px;
         }
 
-        .attachment-section button {
+        #attachment-section button {
             padding: 3px 10px;
             background-color: lightgray;
             border: none;
@@ -264,7 +264,7 @@
             transition: background-color 0.3s;
         }
 
-        .attachment-section button:hover {
+        #attachment-section button:hover {
             background-color: gray;
         }
 
@@ -318,7 +318,7 @@
                 <li>國立交通大學 應用數學系 碩士<span class="item-period">2018/09 ~ 2020/11</span></li>
                 <div class="contect-item">
                     <p>研究領域： 隨機過程、馬可夫鏈</p>
-                    <p>論文題目： 在無限二元樹中隨機漫步的逃脫機率</p>
+                    <p>論文題目： 在無限二元樹中隨機漫步的逃脫機率<a href="#attachment-section">(如附件)</a></p>
                     <p>修習科目： 實變函數論、高等機率論、常微分方程、矩陣分析</p>
                 </div>
                 <li>國立中央大學 資訊工程學系 學士<span class="item-period">2013/09 ~ 2017/06</span></li>
@@ -451,7 +451,7 @@
         </section>
 
         <div class="section-title">附件</div>
-        <section class="attachment-section">
+        <section id="attachment-section">
             <ul>
                 <li>碩士畢業證書<button data-target="certContainer" data-expanded="false">展開</button></li>
                 <div id="certContainer" class="attachment-content hidden">
@@ -459,9 +459,8 @@
                 </div>
                 <li>碩士論文中文摘要<button data-target="thesisContainer" data-expanded="false">展開</button></li>
                 <div id="thesisContainer" class="attachment-content hidden">
-                    <img src="碩士論文.jpeg" alt="碩士論文封面" class="attachment-image">
+                    <img src="碩士論文.jpeg" alt="碩士論文中文摘要" class="attachment-image">
                 </div>
-                <li>數據分析課程專題成果</li>
             </ul>
 
         </section>
