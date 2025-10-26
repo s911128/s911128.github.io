@@ -86,7 +86,7 @@
 
         /* 3. 學歷、經歷的內容排版 */
 
-        .important {
+        .section-content li {
             font-size: 1.08em;
             font-weight: bold;
         }
@@ -102,7 +102,7 @@
             margin: 0 0 10px 20px;
         }
 
-        .contect-item p{
+        .contect-item p {
             margin: 0;
         }
 
@@ -112,52 +112,106 @@
             float: right;
         }
 
-        /* --- 4. 技能專長長條圖 (單行呈現) --- */
+        /* --- 技能專長與語言能力 (重點修改區) --- */
         .skills-group {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            /* 增加組間間距 */
         }
 
         .skills-group h4 {
             font-size: 1.1em;
             color: #004085;
-            margin: 5px 0;
+            margin: 5px 0 10px 0;
+            font-weight: bold;
         }
 
-        .skills-container {
-            /* 讓所有長條圖都排成一列 */
-            display: block;
+        /* 技能/語言 刻度線容器 */
+        .skills-scale-container {
+            display: flex;
+            align-items: center;
+            /* 調整刻度與名稱的間距，與技能名稱寬度匹配 */
+            padding-left: 80px;
+            margin-bottom: 5px;
         }
+
+        /* 刻度線 */
+        .skills-scale {
+            display: flex;
+            flex-grow: 1;
+            position: relative;
+            max-width: 700px;
+            height: 10px;
+            margin-top: 20px;
+        }
+
+        /* 刻度文字樣式 */
+        .scale-label {
+            position: absolute;
+            font-size: 0.9em;
+            color: black;
+            text-align: center;
+            top: -15px;
+            transform: translateX(-50%);
+            /* 確保文字中心對齊刻度位置 */
+        }
+
+        /* 刻度位置 (0% 是起點，不需要標籤) */
+        .scale-label:nth-child(1) {
+            left: 0%;
+            transform: translateX(0%);
+        }
+
+        .scale-label:nth-child(2) {
+            left: 25%;
+        }
+
+        .scale-label:nth-child(3) {
+            left: 50%;
+        }
+
+        .scale-label:nth-child(4) {
+            left: 75%;
+        }
+
+        .scale-label:nth-child(5) {
+            left: 100%;
+            transform: translateX(-100%);
+        }
+
 
         .skill-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 10px;
-            /* 增加行間距 */
+            margin-bottom: 8px;
         }
 
         .skill-name {
             width: 70px;
-            /* 稍微增加寬度以容納「語言能力」的項目名稱 */
-            font-weight: bold;
+            /* 技能名稱固定寬度 */
+            font-weight: normal;
+            /* 技能名稱不需太粗 */
             text-align: right;
             flex-shrink: 0;
+            color: #212529;
         }
 
         .skill-bar-container {
             flex-grow: 1;
             background-color: #e9ecef;
             border-radius: 5px;
-            height: 8px;
+            height: 20px;
             overflow: hidden;
-            max-width: 600px;
-            /* 確保長條圖寬度一致 */
+            max-width: 700px;
         }
 
         .skill-bar {
             height: 100%;
-            background-color: #28a745;
+            background-color: #007bff;
+            /* 改為藍色，更專業 */
+            border-radius: 5px;
             transition: width 0.5s ease-in-out;
+            position: relative;
         }
 
         /* 根據 data-level 設定長條圖寬度 (百分比) */
@@ -165,29 +219,26 @@
             width: 0%;
         }
 
-        /* 未接觸 */
         .skill-bar[data-level="2"] {
-            width: 33%;
+            width: 25%;
         }
 
-        /* 略懂 */
         .skill-bar[data-level="3"] {
-            width: 66%;
+            width: 50%;
         }
 
-        /* 普通 */
         .skill-bar[data-level="4"] {
+            width: 75%;
+        }
+
+        .skill-bar[data-level="5"] {
             width: 100%;
         }
 
-        /* 熟練 */
-
-        .skill-text {
-            width: 40px;
-            font-size: 0.85em;
-            color: #004085;
-            flex-shrink: 0;
+        #licence {
+            margin-left: 40px;
         }
+
 
         /* --- 自傳與附件 --- */
         .autobiography {
@@ -243,30 +294,30 @@
         <div class="section-title">學歷</div>
         <section class="section-content">
             <ul>
-                <li class="important">國立交通大學 應用數學系 碩士<span class="item-period">2018/09 ~ 2020/11</span></li>
+                <li>國立交通大學 應用數學系 碩士<span class="item-period">2018/09 ~ 2020/11</span></li>
                 <div class="contect-item">
                     <p>研究領域： 隨機過程、馬可夫鏈</p>
                     <p>論文題目： 在無限二元樹中隨機漫步的逃脫機率</p>
                     <p>修習科目： 實變函數論、高等機率論、常微分方程、矩陣分析</p>
                 </div>
-                <li class="important">國立中央大學 資訊工程學系 學士<span class="item-period">2013/09 ~ 2017/06</span></li>
+                <li>國立中央大學 資訊工程學系 學士<span class="item-period">2013/09 ~ 2017/06</span></li>
                 <div class="contect-item">
                     <p>修習科目： 資料結構、演算法、作業系統等</p>
                     <p>參與事務： 資工營、系排、登山社</p>
                 </div>
-                <li class="important">國立臺中第二高級中學 數理資優班</li>
+                <li>國立臺中第二高級中學 數理資優班</li>
             </ul>
         </section>
 
         <div class="section-title">工作經歷<span id="seniority">總年資： 3年</span></div>
         <section class="section-content">
             <ul>
-                <li class="important">財團法人中華經濟研究院<span class="item-period">2023/06 ~ 2024/12</span></li>
+                <li>財團法人中華經濟研究院<span class="item-period">2023/06 ~ 2024/12</span></li>
                 <div class="contect-item">
                     <p>職稱： 輔佐研究員</p>
                     <p>工作內容： 資料蒐集</p>
                 </div>
-                <li class="important">京赫科技有限公司<span class="item-period">2021/09 ~ 2023/05</span></li>
+                <li>京赫科技有限公司<span class="item-period">2021/09 ~ 2023/05</span></li>
                 <div class="contect-item">
                     <p>職稱： 後端工程師</p>
                     <p>工作內容： 資料蒐集</p>
@@ -274,73 +325,107 @@
             </ul>
         </section>
 
-        <div class="section-title">技能與語言能力</div>
-        <section class="section-content skills-container">
-            <p style="font-size: 0.9em; margin-bottom: 10px; color:#666;">熟練度等級：未接觸 | 略懂 | 普通 | 熟練</p>
-
+        <div class="section-title">技能專長</div>
+        <section class="section-content">
             <div class="skills-group">
-                <h4>技能專長</h4>
-                <div class="skill-item">
-                    <span class="skill-name">金</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
+                <h4>擅長工具</h4>
+                <div class="skills-scale-container">
+                    <div class="skills-scale">
+                        <span class="scale-label" style="left: 0;">未接觸</span>
+                        <span class="scale-label" style="left: 25%;">略懂</span>
+                        <span class="scale-label" style="left: 50%;">普通</span>
+                        <span class="scale-label" style="left: 75%;">良好</span>
+                        <span class="scale-label" style="right: -5%">精通</span>
                     </div>
-                    <span class="skill-text">普通</span>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-name">木</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
+
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="4"></div>
+                        </div>
                     </div>
-                    <span class="skill-text">普通</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">水</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="4"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">C++</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="3"></div>
+                        </div>
                     </div>
-                    <span class="skill-text">熟練</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">火</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">Java</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="3"></div>
+                        </div>
                     </div>
-                    <span class="skill-text">普通</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">土</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="4"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">SQL</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="4"></div>
+                        </div>
                     </div>
-                    <span class="skill-text">熟練</span>
+                    <div class="skill-item">
+                        <span class="skill-name">Power BI</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="4"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Git</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="4"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Excel</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="5"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="skills-group">
                 <h4>語言能力</h4>
-                <div class="skill-item">
-                    <span class="skill-name">英文</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
+                <div class="skills-scale-container">
+                    <div class="skills-scale">
+                        <span class="scale-label" style="left: 0;">未接觸</span>
+                        <span class="scale-label" style="left: 25%;">略懂</span>
+                        <span class="scale-label" style="left: 50%;">普通</span>
+                        <span class="scale-label" style="left: 75%;">良好</span>
+                        <span class="scale-label" style="right: -5%">精通</span>
                     </div>
-                    <span class="skill-text">普通</span>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-name">台語</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
+
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <span class="skill-name">英文</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="3"></div>
+                        </div>
                     </div>
-                    <span class="skill-text">普通</span>
+                    <div class="skill-item">
+                        <span class="skill-name">台語</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-level="4"></div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="skills-group">
+                <h4>證照</h4>
+                <p id="licence">普通小型車駕照、普通重型機車駕照</p>
             </div>
         </section>
 
-        <div class="section-title">自傳 (Autobiography)</div>
+        <div class="section-title">自傳</div>
         <section class="section-content">
-            <p class="autobiography">
-                我是ABC，畢業於世界大學物理系碩士，在學期間專注於研究世界的物質特性。我具備一年的研究員工作經歷，熟悉相關的實驗與分析方法。我對於探索未知充滿熱情，並渴望將所學應用於實際問題的解決。...(以下略)
-            </p>
+            <p>我是沈峻霆，臺中人，畢業於交通大學應用數學研究所。高中時期數理能力不錯，大學錄取上資訊工程學系，接觸過C++和Java。近期上完數據分析相關課程，對Python、SQL、database、Power BI、Git也有一定程度的了解。</p>
+            <p>在研究所時，畢業論文是應用馬可夫鏈來估計隨機漫步在特殊情況下的逃脫機率。研究領域是機率理論與馬可夫鏈，研究中遇到的問題，指導教授會以反問的方式，讓我不斷地想辦法解決。假如真的想不出辦法，我則會將我的方法與所遇到的困難解釋給教授聽，跟教授討論下一步該如何走。</p>
+            <p>畢業後，前後任職2份工作。第一個是任職於遊戲公司，負責後端程式的撰寫；第二個是於財團法人中華經濟研究院任職輔佐研究員，負責政府標案資料蒐集和行政事務。這兩份工作讓我得到很多跟人分工與溝通的經驗，十分重要。</p>
+            <p>聘期結束後回台中，有幸得到數據分析課程學習的機會，課程最後的專題做了飛往日本機票的Power BI數據分析，是和組員分工和討論的成果。</p>
+            <p>最後，雖然我目前出社會將近3年，但我認為藉由在數學系裡嚴謹的邏輯思考訓練可以幫助我快速的在資料科學領域學習與進修，期望自己能學以致用為公司帶來正面影響。</p>
+
         </section>
 
         <div class="section-title">附件</div>
