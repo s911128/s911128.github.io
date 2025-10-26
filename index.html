@@ -12,37 +12,39 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* 淺灰色背景 */
+            background-color: #f8f8f8;
             color: #333;
         }
 
         .resume-container {
             width: 85%;
-            max-width: 800px; /* 履歷表常見的 A4 寬度限制 */
+            max-width: 800px;
             margin: 30px auto;
             background: #fff;
             padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 輕微陰影，增加質感 */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
         /* --- 標題與個人資訊區 --- */
         .header-title {
             text-align: center;
             font-size: 2.5em;
-            color: #004085; /* 深藍色，專業感 */
-            border-bottom: 3px solid #004085;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+            color: #004085;
+            /* 1. 移除履歷表標題下方的橫線 */
+            border-bottom: none; 
+            padding-bottom: 0;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
         .profile-info {
+            /* 2. 大頭照在左，資訊在右，使用 Flexbox */
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 20px;
+            align-items: flex-start; /* 讓內容從上方對齊 */
+            gap: 20px;
+            padding: 20px 0;
             margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 2px solid #004085; /* 保持資訊區塊下的分隔線 */
         }
 
         .contact-details {
@@ -50,22 +52,24 @@
         }
 
         .contact-details h1 {
+            /* 2. 姓名 ABC 字體放大 */
             margin: 0 0 5px 0;
-            font-size: 2em;
+            font-size: 2.5em; 
             color: #212529;
         }
 
         .contact-details p {
             margin: 3px 0;
+            font-size: 1.05em; /* 稍微放大其他資訊 */
         }
 
         .profile-photo {
-            width: 100px;
-            height: 100px;
+            width: 120px; /* 稍微放大頭照 */
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ccc;
-            flex-shrink: 0; /* 防止圖片被壓縮 */
+            flex-shrink: 0;
         }
         
         /* --- 區塊標題 --- */
@@ -79,42 +83,46 @@
             font-weight: bold;
         }
 
-        /* --- 基本資料與學歷/經歷項目 --- */
-        .data-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 兩欄排版 */
-            gap: 5px 20px;
-        }
-        
-        .section-content p {
-            margin: 5px 0;
-        }
-
+        /* 3. 學歷、經歷的內容排版 */
         .item-period {
             font-style: italic;
             color: #666;
             float: right;
         }
+        .experience-item ul {
+            list-style-type: disc;
+            margin: 5px 0 10px 20px;
+            padding: 0;
+        }
+        .experience-item li {
+            margin-bottom: 3px;
+        }
 
-        /* --- 技能專長長條圖 --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 左右兩欄顯示技能 */
-            gap: 15px 30px;
+        /* --- 4. 技能專長長條圖 (單行呈現) --- */
+        .skills-group {
+            margin-bottom: 20px;
+        }
+        .skills-group h4 {
+            font-size: 1.1em;
+            color: #004085;
+            margin: 5px 0;
+        }
+        .skills-container {
+            /* 讓所有長條圖都排成一列 */
+            display: block; 
         }
 
         .skill-item {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 10px; /* 增加行間距 */
         }
 
         .skill-name {
-            width: 50px; 
+            width: 70px; /* 稍微增加寬度以容納「語言能力」的項目名稱 */
             font-weight: bold;
-            text-align: left;
+            text-align: right;
             flex-shrink: 0;
         }
 
@@ -122,8 +130,9 @@
             flex-grow: 1;
             background-color: #e9ecef;
             border-radius: 5px;
-            height: 8px; /* 較細的長條圖，更專業 */
+            height: 8px;
             overflow: hidden;
+            max-width: 600px; /* 確保長條圖寬度一致 */
         }
 
         .skill-bar {
@@ -145,16 +154,15 @@
             flex-shrink: 0;
         }
 
-        /* --- 自傳 --- */
+        /* --- 自傳與附件 --- */
         .autobiography {
             text-align: justify;
             text-indent: 2em;
         }
         
-        /* --- 附件區塊 --- */
         .attachment-section button {
             padding: 5px 10px;
-            background-color: #6c757d; /* 灰色按鈕 */
+            background-color: #6c757d;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -164,20 +172,8 @@
             transition: background-color 0.3s;
         }
 
-        .attachment-section button:hover {
-            background-color: #5a6268;
-        }
-
         .hidden {
             display: none;
-        }
-
-        .attachment-image {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 15px;
         }
     </style>
 </head>
@@ -187,72 +183,83 @@
         <div class="header-title">履歷表</div>
 
         <div class="profile-info">
+             <img src="images/profile.jpg" alt="ABC的大頭照" class="profile-photo">
+            
             <div class="contact-details">
                 <h1>姓名: ABC</h1>
-                <p>性別: 男 | 年齡: 18</p>
+                <p>性別: 男</p>
+                <p>年齡: 18</p>
                 <p>電話: 0123456789</p>
             </div>
-             <img src="images/profile.jpg" alt="ABC的大頭照" class="profile-photo">
         </div>
 
         <div class="section-title">教育背景 (學歷)</div>
         <section class="section-content">
             <p>
-                **世界大學 物理系 碩士**
+                世界大學 物理系 碩士
                 <span class="item-period">2024/01 ~ 2024/12</span>
             </p>
         </section>
 
         <div class="section-title">工作經歷</div>
         <section class="section-content">
-            <p>**總年資:** 1年</p>
+            <p>總年資: 1年</p>
             <div class="experience-item">
-                <p>
-                    **ABC公司 - 研究員**
+                <p style="font-weight: bold; margin-bottom: 5px;">
+                    ABC公司
                     <span class="item-period">2025/01 ~ 2025/06</span>
                 </p>
-                <p style="margin-top: -5px;">* 工作內容: 研究世界的物質</p>
+                <ul>
+                    <li>職稱: 研究員</li>
+                    <li>工作內容: 研究世界的物質</li>
+                </ul>
             </div>
         </section>
 
-        <div class="section-title">技能專長</div>
-        <section class="section-content">
+        <div class="section-title">技能與語言能力</div>
+        <section class="section-content skills-container">
             <p style="font-size: 0.9em; margin-bottom: 10px; color:#666;">熟練度等級：未接觸 | 略懂 | 普通 | 熟練</p>
-            <div class="skills-grid">
+
+            <div class="skills-group">
+                <h4>技能專長</h4>
                 <div class="skill-item">
                     <span class="skill-name">金</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
-                    </div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="3"></div></div>
                     <span class="skill-text">普通</span>
                 </div>
                 <div class="skill-item">
                     <span class="skill-name">木</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
-                    </div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="3"></div></div>
                     <span class="skill-text">普通</span>
                 </div>
                 <div class="skill-item">
                     <span class="skill-name">水</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="4"></div>
-                    </div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="4"></div></div>
                     <span class="skill-text">熟練</span>
                 </div>
                 <div class="skill-item">
                     <span class="skill-name">火</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="3"></div>
-                    </div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="3"></div></div>
                     <span class="skill-text">普通</span>
                 </div>
                 <div class="skill-item">
                     <span class="skill-name">土</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-level="4"></div>
-                    </div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="4"></div></div>
                     <span class="skill-text">熟練</span>
+                </div>
+            </div>
+
+            <div class="skills-group">
+                <h4>語言能力</h4>
+                 <div class="skill-item">
+                    <span class="skill-name">英文</span>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="3"></div></div>
+                    <span class="skill-text">普通</span>
+                </div>
+                 <div class="skill-item">
+                    <span class="skill-name">台語</span>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="3"></div></div>
+                    <span class="skill-text">普通</span>
                 </div>
             </div>
         </section>
@@ -282,18 +289,15 @@
             const toggleButton = document.getElementById('toggleAttachment');
             const attachmentContainer = document.getElementById('attachmentContainer');
 
-            // 檢查元素是否存在
             if (toggleButton && attachmentContainer) {
                 toggleButton.addEventListener('click', function() {
                     const isExpanded = this.getAttribute('data-expanded') === 'true';
 
                     if (isExpanded) {
-                        // 收合
                         attachmentContainer.classList.add('hidden');
                         this.textContent = '展開';
                         this.setAttribute('data-expanded', 'false');
                     } else {
-                        // 展開
                         attachmentContainer.classList.remove('hidden');
                         this.textContent = '收合';
                         this.setAttribute('data-expanded', 'true');
