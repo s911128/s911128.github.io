@@ -85,6 +85,12 @@
         }
 
         /* 3. 學歷、經歷的內容排版 */
+
+        .important {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
         .item-period {
             font-style: italic;
             color: #666;
@@ -92,7 +98,7 @@
         }
 
         .education-item p{
-            margin: 3px 0;
+            margin: 3px 0 10px 20px;
             font-size: 1.05em; /* 稍微放大其他資訊 */
         }
 
@@ -237,13 +243,13 @@
         <div class="section-title">學歷</div>
         <section class="section-content">
             <ul>
-                <li><strong>國立交通大學 應用數學系 碩士</strong><span class="item-period">2018/09 ~ 2020/11</span></li>
+                <li class="important">國立交通大學 應用數學系 碩士<span class="item-period">2018/09 ~ 2020/11</span></li>
                 <div class="education-item">
                     <p>研究領域： 隨機過程、馬可夫鏈</p>
                     <p>論文題目： 在無限二元樹中隨機漫步的逃脫機率</p>
                     <p>修習科目： 實變函數論、高等機率論、常微分方程、矩陣分析</p>
                 </div>
-                <li>國立中央大學 資訊工程學系 學士<span class="item-period">2013/09 ~ 2017/06</span></li>
+                <li class="important">國立中央大學 資訊工程學系 學士<span class="item-period">2013/09 ~ 2017/06</span></li>
                 <div class="education-item">
                     <p>修習科目： 資料結構、演算法、作業系統等</p>
                     <p>參與事務： 資工營、系排、登山社</p>
