@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC 的個人網站 - 練習作品</title>
-    
+
     <style>
         /* 基本重置 */
         body {
@@ -18,13 +19,16 @@
 
         .container {
             width: 80%;
-            max-width: 960px; /* 限制最大寬度以保持排版美觀 */
+            max-width: 960px;
+            /* 限制最大寬度以保持排版美觀 */
             margin: auto;
             overflow: hidden;
             padding: 20px 0;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: #007BFF;
         }
 
@@ -41,11 +45,12 @@
         .profile-photo {
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* 圓形大頭照 */
+            border-radius: 50%;
+            /* 圓形大頭照 */
             object-fit: cover;
             margin-bottom: 10px;
             border: 5px solid #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         /* 內容區塊樣式 */
@@ -54,7 +59,7 @@
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .info-section ul {
@@ -86,10 +91,12 @@
         }
 
         .skill-name {
-            width: 50px; /* 技能名稱固定寬度 */
+            width: 50px;
+            /* 技能名稱固定寬度 */
             font-weight: bold;
             text-align: right;
-            flex-shrink: 0; /* 防止被壓縮 */
+            flex-shrink: 0;
+            /* 防止被壓縮 */
         }
 
         .skill-bar-container {
@@ -98,23 +105,42 @@
             border-radius: 5px;
             height: 15px;
             overflow: hidden;
-            max-width: 400px; /* 限制長條圖最大寬度 */
+            max-width: 400px;
+            /* 限制長條圖最大寬度 */
         }
 
         .skill-bar {
             height: 100%;
-            background-color: #28a745; /* 綠色，可自訂 */
+            background-color: #28a745;
+            /* 綠色，可自訂 */
             transition: width 0.5s ease-in-out;
         }
 
         /* 根據 data-level 設定長條圖寬度 (百分比) */
-        .skill-bar[data-level="1"] { width: 0%; } /* 未接觸 */
-        .skill-bar[data-level="2"] { width: 33%; } /* 略懂 */
-        .skill-bar[data-level="3"] { width: 66%; } /* 普通 */
-        .skill-bar[data-level="4"] { width: 100%; } /* 熟練 */
+        .skill-bar[data-level="1"] {
+            width: 0%;
+        }
+
+        /* 未接觸 */
+        .skill-bar[data-level="2"] {
+            width: 33%;
+        }
+
+        /* 略懂 */
+        .skill-bar[data-level="3"] {
+            width: 66%;
+        }
+
+        /* 普通 */
+        .skill-bar[data-level="4"] {
+            width: 100%;
+        }
+
+        /* 熟練 */
 
         .skill-text {
-            width: 40px; /* 等級文字固定寬度 */
+            width: 40px;
+            /* 等級文字固定寬度 */
             font-size: 0.9em;
             color: #007BFF;
             flex-shrink: 0;
@@ -160,6 +186,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header class="profile-header">
@@ -169,35 +196,53 @@
 
     <main class="container">
         <section class="info-section">
-            <h2>1. 基本資料</h2>
+            <h2>基本資料</h2>
             <ul>
                 <li>**性別:** 男</li>
-                <li>**年齡:** 18</li>
+                <li>**年齡:** 30</li>
                 <li>**電話:** 0123456789</li>
+                <li>**婚姻狀況:** 未婚</li>
+                <li>**兵役狀況:** 役畢(2018/01)</li>
+                <li>**通訊地址:** 臺中市大甲區文武里1鄰育英路80號</li>
             </ul>
         </section>
 
         <section class="info-section">
-            <h2>2. 學歷</h2>
+            <h2>學歷</h2>
             <div class="education-item">
-                <p>**世界大學 物理系 碩士**</p>
-                <p>在學期間: 2024/01 ~ 2024/12</p>
+                <p>**國立交通大學 應用數學系 碩士**</p>
+                <p>在學期間: 2018/09 ~ 2020/11</p>
+                <p>研究領域: 隨機過程、馬可夫鏈</p>
+                <p>論文題目: 在無限二元樹中隨機漫步的逃脫機率</p>
+                <p>修習科目： 實變函數論、高等機率論、常微分方程、矩陣分析</p>
+            </div>
+            <div class="education-item">
+                <p>**國立中央大學 資訊工程學系 學士**</p>
+                <p>在學期間: 2013/09 ~ 2017/06</p>
+                <p>修習科目： 資料結構、演算法、作業系統等</p>
+                <p>參與事務： 資工營、系排、登山社</p>
             </div>
         </section>
 
         <section class="info-section">
-            <h2>3. 工作經歷</h2>
-            <p>**總年資:** 1年</p>
+            <h2>工作經歷</h2>
+            <p>**總年資:** 3年</p>
             <div class="experience-item">
-                <h3>ABC公司</h3>
-                <p>**職稱:** 研究員</p>
+                <h3>財團法人中華經濟研究院</h3>
+                <p>**職稱:** 輔佐研究員</p>
                 <p>**工作內容:** 研究世界的物質</p>
-                <p>**任職期間:** 2025/01 ~ 2025/06</p>
+                <p>**任職期間:** 2023/06 ~ 2024/12</p>
+            </div>
+            <div class="experience-item">
+                <h3>京赫科技有限公司</h3>
+                <p>**職稱:** 後端工程師</p>
+                <p>**工作內容:** 研究世界的物質</p>
+                <p>**任職期間:** 2021/09 ~ 2023/05</p>
             </div>
         </section>
 
         <section class="info-section">
-            <h2>4. 技能專長</h2>
+            <h2>技能專長</h2>
             <p class="skill-level-note">等級：未接觸、略懂、普通、熟練</p>
             <div class="skills-container">
                 <div class="skill-item">
@@ -239,14 +284,23 @@
         </section>
 
         <section class="info-section">
-            <h2>5. 自傳</h2>
+            <h2>自傳</h2>
             <p class="autobiography">
-                我是ABC，畢業於世界大學物理系碩士，在學期間專注於研究世界的物質特性。我具備一年的研究員工作經歷，熟悉相關的實驗與分析方法。我對於探索未知充滿熱情，並渴望將所學應用於實際問題的解決。...(以下略)
+                我是沈峻霆，臺中人，畢業於交通大學應用數學研究所。高中時期數理能力不錯，大學錄取上資訊工程學系，接觸過C++和Java。近期上完數據分析相關課程，對Python、SQL、database、Power
+                BI、Git也有一定程度的了解。
+
+                在研究所時，畢業論文是應用馬可夫鏈來估計隨機漫步在特殊情況下的逃脫機率。研究領域是機率理論與馬可夫鏈，研究中遇到的問題，指導教授會以反問的方式，讓我不斷地想辦法解決。假如真的想不出辦法，我則會將我的方法與所遇到的困難解釋給教授聽，跟教授討論下一步該如何走。
+
+                畢業後，前後任職2份工作。第一個是任職於遊戲公司，負責後端程式的撰寫；第二個是於財團法人中華經濟研究院任職輔佐研究員，負責政府標案資料蒐集和行政事務。這兩份工作讓我得到很多跟人分工與溝通的經驗，十分重要。
+
+                聘期結束後回台中，有幸得到數據分析課程學習的機會，課程最後的專題做了飛往日本機票的Power BI數據分析，是和組員分工和討論的成果。
+
+                最後，雖然我目前出社會將近3年，但我認為藉由在數學系裡嚴謹的邏輯思考訓練可以幫助我快速的在資料科學領域學習與進修，期望自己能學以致用為公司帶來正面影響。 
             </p>
         </section>
 
         <section class="info-section attachment-section">
-            <h2>6. 附件</h2>
+            <h2>附件</h2>
             <p>畢業證書.jpeg</p>
             <button id="toggleAttachment" data-expanded="false">展開</button>
 
@@ -258,18 +312,18 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 ABC. All Rights Reserved.</p>
+        <p>&copy; 2025 沈峻霆的個人網站</p>
     </footer>
 
     <script>
         // 處理附件的展開/收合功能
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const toggleButton = document.getElementById('toggleAttachment');
             const attachmentContainer = document.getElementById('attachmentContainer');
 
             // 檢查元素是否存在
             if (toggleButton && attachmentContainer) {
-                toggleButton.addEventListener('click', function() {
+                toggleButton.addEventListener('click', function () {
                     // 檢查當前狀態
                     const isExpanded = this.getAttribute('data-expanded') === 'true';
 
@@ -289,4 +343,5 @@
         });
     </script>
 </body>
+
 </html>
