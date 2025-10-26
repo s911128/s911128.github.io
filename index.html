@@ -37,7 +37,7 @@
         }
 
         .profile-info {
-            /* 2. 大頭照在左，資訊在右，使用 Flexbox */
+            /* 大頭照在左，資訊在右，使用 Flexbox */
             display: flex;
             align-items: flex-start;
             /* 讓內容從上方對齊 */
@@ -50,8 +50,7 @@
             flex-grow: 1;
         }
 
-        .contact-details h1 {
-            /* 2. 姓名 ABC 字體放大 */
+        .contact-details h2 {
             margin: 0 0 5px 0;
             font-size: 2.5em;
             color: #212529;
@@ -64,13 +63,14 @@
         }
 
         .profile-photo {
-            width: 120px;
-            /* 稍微放大頭照 */
-            height: 120px;
+            
+            height: 140px;
             border-radius: 50%;
+            border-top-width: 50px;
             object-fit: cover;
             border: 2px solid #ccc;
             flex-shrink: 0;
+            transform: translateY(0px);
         }
 
         /* --- 區塊標題 --- */
@@ -99,7 +99,7 @@
         }
 
         .contect-item {
-            margin: 15px 0 35px 20px;
+            margin: 20px 0 35px 20px;
         }
 
         .contect-item p {
@@ -174,8 +174,8 @@
         }
 
         .scale-label:nth-child(5) {
-            left: 100%;
-            transform: translateX(-100%);
+            right: 0%;
+            transform: translateX(0%);
         }
 
 
@@ -295,10 +295,9 @@
             <img src="大頭照.jpg" alt="大頭照" class="profile-photo">
 
             <div class="contact-details">
-                <h1>沈峻霆</h1>
-                <p>性別： 男</p>
-                <p>年齡： 30</p>
-                <p>電話： 0123456789</p>
+                <h2>沈峻霆</h2>
+                <p>聯絡電話： 0988-505-288</p>
+                <p>電子信箱： jjoce8513@gmail.com</p>
             </div>
         </div>
 
@@ -357,7 +356,7 @@
                         <span class="scale-label" style="left: 25%;">略懂</span>
                         <span class="scale-label" style="left: 50%;">普通</span>
                         <span class="scale-label" style="left: 75%;">良好</span>
-                        <span class="scale-label" style="right: -5%">精通</span>
+                        <span class="scale-label" style="right: 0%">精通</span>
                     </div>
                 </div>
 
@@ -415,7 +414,7 @@
                         <span class="scale-label" style="left: 25%;">略懂</span>
                         <span class="scale-label" style="left: 50%;">普通</span>
                         <span class="scale-label" style="left: 75%;">良好</span>
-                        <span class="scale-label" style="right: -5%">精通</span>
+                        <span class="scale-label" style="right: 0%">精通</span>
                     </div>
                 </div>
 
